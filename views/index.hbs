@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Leave Management System</title>
+    <style media="screen">
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1000px;
+      }
+
+      .card {
+        height: auto;
+        width: 100px;
+        border: 1px solid black;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <p>Leave Management System</p>
+      <button type="button" name="button">Menu</button>
+    </nav>
+
+    <div class="container">
+      {{#each cards}}
+      <div class="card">
+        <p>#{{this.[0]}}</p>
+        <p>{{this.[1]}}</p>
+        <p>Last Lve: {{changeToPrettyDate this.[2]}}</p>
+        <p>Next Lve: </p>
+      </div>
+      {{/each}}
+
+    </div>
+  </body>
+</html>
