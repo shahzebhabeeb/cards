@@ -31,4 +31,6 @@ app.get('/', function (req, res) {
 
 })
 
+// Sharjeel please add a route for /torees and /noman
+
 app.listen(3000)
