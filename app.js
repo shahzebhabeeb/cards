@@ -28,7 +28,12 @@ app.get('/', function (req, res) {
     console.log(e);
   })
 
-
+app.get('/noman', function (req, res) {
+      res.render('noman.hbs', {});
+    })
+    app.get('/torees', function (req, res) {
+        res.render('torees.hbs', {});
+      })
 })
 
 // Sharjeel please add a route for /torees and /noman
