@@ -3,7 +3,7 @@ const readXlsxFile = require('read-excel-file/node');
 const hbs = require('hbs');
 const app = express()
 
-hbs.registerHelper("changeToPrettyDate",function(value) {
+hbs.registerHelper("changeToPrettyDate", function(value) {
   console.log(value.toString());
   let array = value.toString().split(' ');
   console.log(array);
@@ -15,7 +15,7 @@ hbs.registerHelper("changeToPrettyDate",function(value) {
   return connectDate;
 })
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
   // code to read data from excel sheet
   // File path.
   readXlsxFile('./public/data.xlsx').then((rows) => {
@@ -28,14 +28,21 @@ app.get('/', function (req, res) {
     console.log(e);
   })
 
-app.get('/noman', function (req, res) {
-      res.render('noman.hbs', {});
-    })
-    app.get('/torees', function (req, res) {
-        res.render('torees.hbs', {});
-      })
 })
 
 // Sharjeel please add a route for /torees and /noman
+
+// a new route has been added at this point
+app.get('/addData', function(req,res) {
+  res.render('adddata.hbs');
+})
+
+app.get('/noman', function(req, res) {
+  res.render('noman.hbs', {});
+})
+
+app.get('/torees', function(req, res) {
+  res.render('torees.hbs', {});
+})
 
 app.listen(3000)
