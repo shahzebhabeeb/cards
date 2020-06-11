@@ -4,14 +4,14 @@ const hbs = require('hbs');
 const app = express()
 
 hbs.registerHelper("changeToPrettyDate", function(value) {
-  console.log(value.toString());
+  // console.log(value.toString());
   let array = value.toString().split(' ');
-  console.log(array);
+  // console.log(array);
   let day = array[2];
   let month = array[1];
   let year = array[3];
   let connectDate = day + ' ' + month + ' ' + year;
-  console.log(connectDate);
+  // console.log(connectDate);
   return connectDate;
 })
 
@@ -19,8 +19,13 @@ app.get('/', function(req, res) {
   // code to read data from excel sheet
   // File path.
   readXlsxFile('./public/data.xlsx').then((rows) => {
-    // `rows` is an array of rows
-    // each row being an array of cells.
+    rows = rows.map(val => {
+      // console.log(val);
+      val.push('red');
+      // console.log(val);
+      return val;
+    })
+
     res.render('index.hbs', {
       cards: rows
     });
@@ -30,15 +35,37 @@ app.get('/', function(req, res) {
 
 })
 
-// Sharjeel please add a route for /torees and /noman
+let newFormula = function(value) {
+  // what is the date today?
+
+  let today = new Date().getTime(); // 08932498172349812734 these are milliseconds since 1970
+
+  // how many days since last leave?
+
+  // last leave - today = number of days since last leave
+
+  let lastLeave = new Date(value).getTime(); // 981740189723401892374
+
+  let numberOfDaysSinceLastLve = today - lastLeave; // 890234871236
+
+  let convertIntoDays = numberOfDaysSinceLastLve / (1000 * 60 * 60 * 24); // 167.9080978 days
+
+  // if number of days since last leave > 90 days --- give this guyy the leave
+  console.log({
+    convertIntoDays
+  });
+  if (convertIntoDays > 90) {
+    console.log('change the color of the card shown in website into red.');
+  } else {
+    // if < 90 days -- show how many days left until next leave
+    console.log('only show remaing days until next leave');
+  }
+
+}
 
 // a new route has been added at this point
-app.get('/addData', function(req,res) {
+app.get('/addData', function(req, res) {
   res.render('adddata.hbs');
-})
-
-app.get('/noman', function(req, res) {
-  res.render('noman.hbs', {});
 })
 
 app.get('/torees', function(req, res) {
