@@ -19,12 +19,18 @@ app.get('/', function(req, res) {
   // code to read data from excel sheet
   // File path.
   readXlsxFile('./public/data.xlsx').then((rows) => {
+    // console.log(rows);
+    console.table(rows);
+
     rows = rows.map(val => {
-      // console.log(val);
-      val.push('red');
+      console.log(val);
+      let className = newFunction(val[2]);
+      val.push(className);
       // console.log(val);
       return val;
     })
+
+    console.table(rows);
 
     res.render('index.hbs', {
       cards: rows
@@ -35,8 +41,8 @@ app.get('/', function(req, res) {
 
 })
 
-let newFormula = function(value) {
-  // what is the date today?
+let newFunction = function(valtwo) {
+  // / what is the date today?
 
   let today = new Date().getTime(); // 08932498172349812734 these are milliseconds since 1970
 
@@ -44,24 +50,24 @@ let newFormula = function(value) {
 
   // last leave - today = number of days since last leave
 
-  let lastLeave = new Date(value).getTime(); // 981740189723401892374
+  let lastLeave = new Date(valtwo).getTime(); // 981740189723401892374
 
   let numberOfDaysSinceLastLve = today - lastLeave; // 890234871236
 
   let convertIntoDays = numberOfDaysSinceLastLve / (1000 * 60 * 60 * 24); // 167.9080978 days
 
   // if number of days since last leave > 90 days --- give this guyy the leave
-  console.log({
-    convertIntoDays
-  });
+  console.log({convertIntoDays});
   if (convertIntoDays > 90) {
     console.log('change the color of the card shown in website into red.');
+    return 'red';
   } else {
     // if < 90 days -- show how many days left until next leave
     console.log('only show remaing days until next leave');
+    return '';
   }
-
 }
+
 
 // a new route has been added at this point
 app.get('/addData', function(req, res) {
