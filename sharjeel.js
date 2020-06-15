@@ -5,6 +5,8 @@ let today = new Date().getTime(); // 08932498172349812734 these are milliseconds
 
 // last leave - today = number of days since last leave
 
+let valtwo = '10 Jan 2020'; // Please declare a variable before calling into your function.
+
 let lastLeave = new Date(valtwo).getTime(); // 981740189723401892374
 
 let numberOfDaysSinceLastLve = today - lastLeave; // 890234871236
