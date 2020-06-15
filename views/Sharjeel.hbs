@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="jquery.js"></script>
+    <meta charset="utf-8">
+    <title>Leave Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+  <style media="screen">
+
+    body{
+      font-family: Raleway;
+      /* max-width: 800px; */
+      /border: 5px solid grey;
+      padding: 10px;
+      margin: auto;
+
+    }
+    nav{
+      display: flex;
+      height: 200px;
+      align-items: center;
+      justify-content: space-between;
+      background: teal;
+      margin-bottom: 80px;
+      padding: 10px;
+    }
+    nav > h1{
+      font-weight: bold;
+      font-size: 30px;
+      color: white;
+      /* text-decoration: underline; */
+      font-size: 40px;
+    }
+    nav > div > button{
+      color: teal;
+      font-size: 20px;
+      font-weight: bold;
+      border: 5px solid white;
+
+    }
+    .outer{
+      margin:auto;
+      display: flex;
+    }
+    .card{
+      margin:auto;
+      position: relative;
+      /* border: 1px solid black; */
+      /* max-width: 200px; */
+      display: inline-block;
+      padding: 5px;
+      box-shadow: 5px 10px 18px #888888;
+      max-width: 200px;
+
+    }
+    img{
+      width: 100px;
+    }
+    .Number{
+      color:teal;
+      font-weight: bold;
+      font-size: 30px;
+      position: absolute;
+      top: 0;
+      right:0;
+      padding: 10px;
+
+    }
+    .back > img{
+      position: fixed;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      top:250px;
+      right: 0;
+      opacity: 0.2;
+      z-index: -1;
+    }
+    .back > button{
+      padding: 10px;
+      border: 2px solid grey;
+      font-size: 20px;
+      font-weight: bold;
+      color: steelblue;
+    }
+    .card > p {
+      word-break: break-word;
+    }
+
+    .red {
+      background: red;
+    }
+
+  </style>
+
+  <body>
+    <nav>
+      <h1>Leave Calculator</h1>
+      <div class="button">
+      <button type="button" name="button">MENU</button>
+      </div>
+    </nav>
+
+    <div class="back">
+      <img src="back.svg" alt="">
+    </div>
+<div class="outer">
+  {{#each cards}}
+  <div class="card {{this.[3]}}">
+    <p>#{{this.[0]}}</p>
+    <p>{{this.[1]}}</p>
+    <p>Last Lve: {{changeToPrettyDate this.[2]}}</p>
+    <p>Days Since Last Leave: {{this.[4]}} </p>
+    <a href="/Edit">Edit Data</a>
+  </div>
+  {{/each}}
+<!-- <div class="card">
+
+  <img src="truck.png" alt="">
+  <div class="Number">
+    <p>#1</p>
+  </div>
+  <p>Name: Shahzeb Habib</p>
+  <p>Last Leave: 15 Dec 2019</p>
+  <p>Next Leave: 15 Mar 2020</p>
+  <a href="/Edit_Data.html">Edit Data</a>
+
+</div>
+<div class="card">
+
+  <img src="truck.png" alt="">
+  <div class="Number">
+    <p>#1</p>
+  </div>
+  <p>Name: Jamshaid</p>
+  <p>Last Leave: 17 Dec 2019</p>
+  <p>Next Leave: 17 Mar 2020</p>
+  <a href="/Edit_Data.html">Edit Data</a>
+
+</div> -->
+</div>
+<!-- <script type="text/javascript">
+$(".button").on('click',function(){
+  console.log("No Error")
+  $(".Number").css({
+    position: "relative"
+    })
+    $(".card").css({
+      display: "block"
+      })
+})
+
+</script> -->
+  </body>
+</html>

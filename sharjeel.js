@@ -3,7 +3,8 @@ let today = new Date().getTime(); // 08932498172349812734 these are milliseconds
 
 // how many days since last leave?
 
-// last leave - today = number of days since last leave
+// I wanted to make the code to return the number of days left, which you have shown in the last video, I t=instead worked on the index.hbs file as was told in the video pl.
+
 
 let valtwo = '10 Jan 2020'; // Please declare a variable before calling into your function.
 

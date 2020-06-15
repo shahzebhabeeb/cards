@@ -28,11 +28,7 @@ app.get('/', function(req, res) {
       console.log(className);
       let output = val.concat(className);
 
-      // TODO: sharjeel your functions are saved here. you can continue working on these from this point onwards.
 
-      // let newvalue = newFunction3(val[3])
-      // val.push(newvalue);
-      // console.log(val);
       return output;
     })
 
@@ -40,7 +36,7 @@ app.get('/', function(req, res) {
 
     console.table(rows);
 
-    res.render('index.hbs', {
+    res.render('Sharjeel.hbs', {
       cards: rows
     });
   }).catch(e => {
@@ -75,36 +71,6 @@ let newFunction = function(valtwo) {
     return ['', convertIntoDays];
   }
 }
-
-let newFunction3 = function(valthree) {
-
-  let today = new Date().getTime(); // 08932498172349812734 these are milliseconds since 1970
-
-// how many days since last leave?
-
-// last leave - today = number of days since last leave
-
-let lastLeave = new Date(valthree).getTime(); // 981740189723401892374
-
-let numberOfDaysSinceLastLve = today - lastLeave; // 890234871236
-
-let convertIntoDays = numberOfDaysSinceLastLve / (1000 * 60 * 60 * 24); // 167.9080978 days
-
-// if number of days since last leave > 90 days --- give this guyy the leave
-//console.log({convertIntoDays});
-if (convertIntoDays > 90) {
-    console.log('change the color of the card shown in website into red.');
-    return convertIntoDays;
-    }
-else {
-    // if < 90 days -- show how many days left until next leave
-    console.log('only show remaing days until next leave');
-    return convertIntoDays;
-    }
-}
-
-
-
 
 // a new route has been added at this point
 app.get('/addData', function(req, res) {
