@@ -25,12 +25,18 @@ app.get('/', function(req, res) {
     rows = rows.map(val => {
       console.log(val);
       let className = newFunction(val[2]);
-      val.push(className);
-      let newvalue = newFunction3(val[3])
-      val.push(newvalue);
+      console.log(className);
+      let output = val.concat(className);
+
+      // TODO: sharjeel your functions are saved here. you can continue working on these from this point onwards.
+
+      // let newvalue = newFunction3(val[3])
+      // val.push(newvalue);
       // console.log(val);
-      return val;
+      return output;
     })
+
+    rows.sort(function(a, b){return b[4] - a[4]});
 
     console.table(rows);
 
@@ -62,11 +68,11 @@ let newFunction = function(valtwo) {
   //console.log({convertIntoDays});
   if (convertIntoDays > 90) {
     //console.log('change the color of the card shown in website into red.');
-    return 'red';
+    return ['red', convertIntoDays];
   } else {
     // if < 90 days -- show how many days left until next leave
     //console.log('only show remaing days until next leave');
-    return '';
+    return ['', convertIntoDays];
   }
 }
 
