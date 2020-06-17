@@ -3,6 +3,10 @@ const readXlsxFile = require('read-excel-file/node');
 const hbs = require('hbs');
 const app = express()
 
+hbs.registerHelper("SumOne", function (value){
+  return value=value+1;
+})
+
 hbs.registerHelper("changeToPrettyDate", function(value) {
   // console.log(value.toString());
   let array = value.toString().split(' ');

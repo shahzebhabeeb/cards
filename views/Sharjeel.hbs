@@ -18,30 +18,35 @@
     }
     nav{
       display: flex;
-      height: 200px;
-      align-items: center;
-      justify-content: space-between;
-      background: teal;
-      margin-bottom: 80px;
-      padding: 10px;
+  /* height: 200px; */
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  margin-bottom: 80px;
+  /* padding: 10px; */
+  max-width: 1100px;
+  margin: auto;
     }
     nav > h1{
       font-weight: bold;
-      font-size: 30px;
-      color: white;
-      /* text-decoration: underline; */
-      font-size: 40px;
+    font-size: 30px;
+    color: teal;
+    /* text-decoration: underline; */
+    font-size: 16px;
     }
     nav > div > button{
       color: teal;
-      font-size: 20px;
+      font-size: 14px;
       font-weight: bold;
       border: 5px solid white;
-
+      padding: 6px 11px;
+      background: #f1f1f1;
     }
     .outer{
-      margin:auto;
-      display: flex;
+      margin: auto;
+    display: flex;
+    max-width: 1100px;
+    justify-content: space-between;
     }
     .card{
       margin:auto;
@@ -50,8 +55,16 @@
       /* max-width: 200px; */
       display: inline-block;
       padding: 5px;
-      box-shadow: 5px 10px 18px #888888;
+      box-shadow: 0px 0px 1px #888888;
       max-width: 200px;
+
+    }
+    .card > a{
+      text-decoration: none;
+      color: #5a5151;
+      background: #f1f1f1;
+      font-size: 14px;
+
 
     }
     img{
@@ -92,7 +105,8 @@
     }
 
     .red {
-      background: red;
+      background: #f5ebeb;
+    color: #555555;
     }
 
   </style>
@@ -101,7 +115,7 @@
     <nav>
       <h1>Leave Calculator</h1>
       <div class="button">
-      <button type="button" name="button">MENU</button>
+      <button type="button" name="button">Menu</button>
       </div>
     </nav>
 
@@ -111,7 +125,7 @@
 <div class="outer">
   {{#each cards}}
   <div class="card {{this.[3]}}">
-    <p>#{{this.[0]}}</p>
+    <p>#{{SumOne @index}}</p>
     <p>{{this.[1]}}</p>
     <p>Last Lve: {{changeToPrettyDate this.[2]}}</p>
     <p>Days Since Last Leave: {{this.[4]}} </p>
