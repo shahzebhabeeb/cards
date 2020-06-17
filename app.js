@@ -7,6 +7,10 @@ hbs.registerHelper("SumOne", function (value){
   return value=value+1;
 })
 
+hbs.registerHelper("ceil", function(value){
+  return Math.ceil(value);
+})
+
 hbs.registerHelper("changeToPrettyDate", function(value) {
   // console.log(value.toString());
   let array = value.toString().split(' ');
